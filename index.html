@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fraunces:opsz,wght@9..144,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Generador de Contraseñas</title>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <!-- Muestra la contraseña generada -->
+        <h2 id="password" class="password-box">P4$5W0RD!</h2>
+        
+        <!-- Información de la longitud de la contraseña -->
+        <h2 class="text-level">
+          LENGTH: <span id="lengthDisplayTitle">10</span>
+        </h2>
+
+        <!-- Control del rango de longitud -->
+        <div class="button-box">
+          <h2 class="button-text">4</h2>
+          <input
+            type="range"
+            min="4"
+            max="32"
+            step="1"
+            class="bar"
+            id="lengthRange"
+          />
+          <h2 id="lengthDisplay" class="button-text-2">32</h2>
+        </div>
+
+        <!-- Opción para incluir mayúsculas -->
+        <div class="uppercase-box">
+          <h2 class="uppercase-text">Include Uppercase</h2>
+          <input id="uppercase" type="checkbox" class="input-checkbox" />
+          <label for="uppercase" class="label"></label>
+        </div>
+
+        <!-- Opción para incluir minúsculas -->
+        <div class="lowercase-box">
+          <h2 class="lowercase-text">Include Lowercase</h2>
+          <input id="lowercase" type="checkbox" class="input-checkbox" />
+          <label for="lowercase" class="label"></label>
+        </div>
+
+        <!-- Opción para incluir números -->
+        <div class="numbers-box">
+          <h2 class="numbers-text">Include Numbers</h2>
+          <input id="numbers" type="checkbox" class="input-checkbox" />
+          <label for="numbers" class="label"></label>
+        </div>
+
+        <!-- Opción para incluir símbolos -->
+        <div class="symbols-box">
+          <h2 class="symbols-text">Include Symbols</h2>
+          <input id="symbols" type="checkbox" class="input-checkbox" />
+          <label for="symbols" class="label"></label>
+        </div>
+
+        <!-- Botón para generar la contraseña -->
+        <button id="cta" disabled class="cta">Generate Password</button>
+      </section>
+    </main>
+
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>

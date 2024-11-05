@@ -1,0 +1,199 @@
+
+/* VAMOS A DARLE ESTILO AL CHECKBOX. PARA ELLO: 
+
+1/CAMBIAMOS EL HTML Y CREAMOS UN LABEL FOR: 
+
+    <input type="range" min="4" max="32" step="1" class="bar"  id="lengthRange" id="check" class="check"></input>
+
+    <label for="lengthRange" class="label"></label>
+
+- SI PUSIESEMOS TEXTO EN EL LABEL SE PONDRÍA AL LADO IZQUIERDO DEL CHECKBOX (SI LO POSICIONAMOS ARRIBA CHECKBOX) EN EL LADO DERECHO DEL CHECKBOX (SI LO POSICIONAMOS ABAJO DEL CHECKBOX) 
+
+- SI EN LABEL FOR PONEMOS LA ID DEL INPUT, ESTÉ SE VINCULARÁ Y CUANDO HAGAMOS CLICK EN EL TEXTO O EN EL CONTENEDOR DEL LABEL ÉSTE SE MARCARÁ
+
+*/ 
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    color: #ffffff;
+    background-color: #110032;
+    font-family: 'DM Mono', monospace;
+  
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 0;
+
+  }
+
+  .card {
+    background-color: #110032;
+    padding: 25px;
+    width: 400px;
+  }
+
+  .password-box {
+    padding-left: 20px;
+    background-color: #241442;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .text-level {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+
+  .button-box {
+    
+    background-color: #241442;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+
+  .uppercase-box, .lowercase-box, .numbers-box, .symbols-box {
+    
+    background-color: #241442;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .uppercase-text, .lowercase-text, .numbers-text, .symbols-text {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+
+
+/* HACER DESEPARECER LA CASILLA DE CHECK */
+
+  .input-checkbox {
+    display: none;
+  }
+
+/* 
+- UTILIZAMOS LA PROPIEDAD TRANSLATE PARA MOVER EL CÍRCULO SIN CONSUMIR MUCHA MEMORIA. 
+
+- PARA ANIMAR EL CÍRCULO Y CONSEGUIR UN EFECTO MÁS SUAVE DEBEMOS DECIRLE AL LABEL::AFTER QUE ACEPTE ANIMACIONES. PARA ELLO AÑADIMOS LA PROPIEDAD TRANSITION 
+
+- COMO QUEREMOS QUE AFECTE A TRANSLATE LO VINCULAMOS Y PONEMOS EL TIEMPO QUE QUEREMOS QUE DURE LA ANIMACIÓN 
+*/
+
+  .input-checkbox:checked + .label::after {
+    transform: translate (30px);
+  }
+
+  .label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 75px; 
+    height: 40px;
+    border-radius: 32px;
+    background-color: grey;
+  }
+
+  /* CREACIÓN DEL PUNTO */
+
+  .label::after{ 
+    content: '';
+    position: absolute;
+    left: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: translate 0.3s;
+  }
+
+  .button-text, .button-text-2 { 
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .bar {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 2px;
+    accent-color: #a200d4;
+  
+  }
+
+  .cta {
+    background-image: linear-gradient(to right, #7944e7, #8300ab);
+    color: white;
+    font-size: 13px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    letter-spacing: 3px;
+    border: none;
+  }
+
+ /* CONSEGUIR QUE EL BOTÓN SE HAGA MÁS GRANDE O PEQUEÑO */
+
+ .cta:hover {
+  scale: 0.95;
+  }
+
+/* 
+
+SI QUEREMOS CONSEGUIR QUE EL CTA NO LE AFECTE EL SCALE SI ESTÁ DISABLED, UTILIZAMOS
+
+.cta:not(:disabled):hover {
+    scale: 0.95;
+} 
+
+*/
+
+/* CONSEGUIR QUE NOS SALGA EL ICONO DE PROHIBIDO CUANDO EL CTA ESTÁ DISABLED */ 
+
+  .cta:disabled {
+    background-image: none; 
+    cursor: not-allowed;
+  }
+    
+
+
