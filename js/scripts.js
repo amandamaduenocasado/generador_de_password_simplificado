@@ -1,23 +1,16 @@
-/* PARA ESTA FORMA SIMPLIFICADA DEL GENERADOR DE PASSWORD VAMOS A REALIZAR LOS SIGUIENTES PASOS: 
-
-
-3/ UTILIZAR UN OBJETO YA QUE LA LISTA DE CARACTERES ES ALGO RELACIONADO
-
-
-
-*/
+// PARA ESTA FORMA SIMPLIFICADA DEL GENERADOR DE PASSWORD VAMOS A REALIZAR LOS SIGUIENTES PASOS: 
 
 const changePassword = document.getElementById('password');
 const cta = document.getElementById('cta');
 const lengthRange = document.getElementById('lengthRange');
 const lengthDisplay = document.getElementById('lengthDisplay'); 
 
-// 1/ UTILIZAR querySelectorAll. DEBEMOS ASEGURARNOS DE QUE EN EL HTML LOS CUATRO CHECKBOX TIENEN LA MISMA CLASE EN ESTE CASO INPUT-CHECKBOX. ASEGURARNOS QUE VA CON EL PUNTO DELANTE
+// 1. UTILIZAR querySelectorAll. DEBEMOS ASEGURARNOS DE QUE EN EL HTML LOS CUATRO CHECKBOX TIENEN LA MISMA CLASE EN ESTE CASO INPUT-CHECKBOX. ASEGURARNOS QUE VA CON EL PUNTO DELANTE
 
 const checkboxElements = document.querySelectorAll('.input-checkbox');
 
 
-// CREAMOS EL OBJETO
+// 2.  UTILIZAR UN OBJETO YA QUE LA LISTA DE CARACTERES ES ALGO RELACIONADOCREAMOS EL OBJETO
 
 const passwordOptions = {
     uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -38,7 +31,7 @@ cta.addEventListener('click', () => {
     createPassword = ''; 
     const passwordLength = lengthRange.value;
 
-// CREAMOS EL FOR OF EN VEZ DE NUMEROSOS IF. SI EL CHECKBOX ESTA CHECKED, CHARACTERS ES IGUAL A CHARACTERS + EL OBJETO QUE TOQUE EN ESE MOMENTO
+// 3. CREAMOS EL FOR OF EN VEZ DE NUMEROSOS IF. SI EL CHECKBOX ESTA CHECKED, CHARACTERS ES IGUAL A CHARACTERS + EL OBJETO QUE TOQUE EN ESE MOMENTO
     for (const checkbox of checkboxElements) 
     if (checkbox.checked)
     characters = characters + passwordOptions[checkbox.id];
